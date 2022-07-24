@@ -1,4 +1,4 @@
-# Forta agent deployement bot
+# Forta agent deployement agent
 
 ## Description
 
