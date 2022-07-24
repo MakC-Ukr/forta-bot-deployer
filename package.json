@@ -26,10 +26,10 @@
   },
   "dependencies": {
     "forta-agent": "^0.1.9",
-    "forta-agent-tools": "^2.3.1",
     "web3": "^1.7.4"
   },
   "devDependencies": {
+    "forta-agent-tools": "^2.3.1",
     "@types/jest": "^27.0.1",
     "@types/nodemon": "^1.19.0",
     "jest": "^27.0.6",
