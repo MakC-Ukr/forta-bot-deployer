@@ -35,15 +35,16 @@ describe("Testing basic functionanlity of bot deployment detection bot", () => {
 
   describe("Tests #1", () => {
     
-    it("No findings if agent is not deployed", async () => {
-      const mockTxFunc = new TestTransactionEvent().setFrom(NETHERMIND_ADDR).setTo(FORTA_ADDR);
-      const findings = await handleTransaction(mockTxFunc);
-      expect(findings).toStrictEqual([]);
-    });
+    // it("No findings if agent is not deployed", async () => {
+    //   const mockTxFunc = new TestTransactionEvent().setFrom(NETHERMIND_ADDR).setTo(FORTA_ADDR);
+    //   const findings = await handleTransaction(mockTxFunc);
+    //   expect(findings).toStrictEqual([]);
+    // });
 
 
     it("Notices agent deployment", async () => {
       const mockTxFunc = new TestTransactionEvent().setFrom(NETHERMIND_ADDR).setTo(FORTA_ADDR).setData(txnData);
+      console.log("HERR", FORTA_ADDR);
       const findings = await handleTransaction(mockTxFunc);
       expect(findings).toStrictEqual([
         Finding.fromObject({
@@ -58,17 +59,17 @@ describe("Testing basic functionanlity of bot deployment detection bot", () => {
       ]);
     });
 
-    it("No findings if non-nethermind deployer", async () => {
-      const mockTxFunc = new TestTransactionEvent().setFrom(FORTA_ADDR).setTo(FORTA_ADDR).setData(txnData);
-      const findings = await handleTransaction(mockTxFunc);
-      expect(findings).toStrictEqual([]);
-    });
+    // it("No findings if non-nethermind deployer", async () => {
+    //   const mockTxFunc = new TestTransactionEvent().setFrom(FORTA_ADDR).setTo(FORTA_ADDR).setData(txnData);
+    //   const findings = await handleTransaction(mockTxFunc);
+    //   expect(findings).toStrictEqual([]);
+    // });
 
-    it("No findings if non-forta deployer", async () => {
-      const mockTxFunc = new TestTransactionEvent().setFrom(NETHERMIND_ADDR).setTo(NETHERMIND_ADDR).setData(txnData);
-      const findings = await handleTransaction(mockTxFunc);
-      expect(findings).toStrictEqual([]);
-    });
+    // it("No findings if non-forta deployer", async () => {
+    //   const mockTxFunc = new TestTransactionEvent().setFrom(NETHERMIND_ADDR).setTo(NETHERMIND_ADDR).setData(txnData);
+    //   const findings = await handleTransaction(mockTxFunc);
+    //   expect(findings).toStrictEqual([]);
+    // });
 
 
   });

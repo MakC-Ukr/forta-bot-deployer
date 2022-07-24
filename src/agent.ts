@@ -18,18 +18,16 @@ let findingsCount = 0;
 const handleTransaction: HandleTransaction = async(txEvent: TransactionEvent) => {
     const findings: Finding[] = [];
 
-    if(txEvent.from != NETHERMIND_ADDR){
-      console.log("HI");
+    if(txEvent.from?.toLowerCase() != NETHERMIND_ADDR?.toLowerCase()){
       return findings;
     }
 
-    if(txEvent.to != FORTA_ADDR){
-      console.log("BYE");
+    if(txEvent.to?.toLowerCase() != FORTA_ADDR?.toLowerCase()){
       return findings;
     }
 
     const txns = txEvent.filterFunction(AGENT_DEPLOYER_FUNC, FORTA_ADDR);
-    txns.forEach((txn) => { 
+    txns.forEach((_) => { 
         findings.push(Finding.fromObject({
           name: ("Forta Agent Deployed"),
           description: "A Forta agent was just deployed from the Nethermind deployer",
