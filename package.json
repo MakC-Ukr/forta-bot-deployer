@@ -1,7 +1,7 @@
 {
   "name": "forta-agent-starter",
   "version": "0.0.1",
-  "description": "Forta bot that detects the deployment of forta bots through Nethermind deployer address.",
+  "description": "Forta agent that detects the deployment of forta agent through Nethermind deployer address.",
   "chainIds": [
     137
   ],
