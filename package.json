@@ -2,6 +2,7 @@
   "name": "forta-agent-starter",
   "version": "0.0.1",
   "description": "Forta agent that detects the deployment of forta agent through Nethermind deployer address.",
+  "repository": "https://github.com/MakC-Ukr/uniswap_swap-forta-bot",
   "chainIds": [
     137
   ],
