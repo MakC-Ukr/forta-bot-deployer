@@ -6,8 +6,6 @@ This agent detects transactions with deployments of Forta agents
 
 ## Supported Chains
 - Polygon
-- For other EVM compatible chains, change the `jsonRpcUrl` in `./forta.config.json` and the `chainId` in `package.json`
-
 ## Alerts
 
 - FAD-0
@@ -17,4 +15,5 @@ This agent detects transactions with deployments of Forta agents
   - Metadata is empty
 ## Test Data
 
-The agent behaviour can be verified by running `npm test`.
+Txn:
+- 0x7b3a2acef6aa72c80eaf036357e11f2ee5931f2eea8b546421e5ea18b299b4ee
