@@ -1,15 +1,15 @@
-# Forta agent deployement agent
+# Forta bot deployement bot
 
 ## Description
 
-This agent detects transactions with deployments of Forta agents
+This bot detects transactions with deployments of Forta bots
 
 ## Supported Chains
 - Polygon
 ## Alerts
 
 - FAD-0
-  - Fired when a transaction contains the Nethermind deployer deploys a Forta agent
+  - Fired when a transaction contains the Nethermind deployer deploys a Forta bot
   - Severity is always set to "low" 
   - Type is always set to "info"
   - Metadata is empty

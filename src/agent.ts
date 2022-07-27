@@ -5,20 +5,20 @@ import {
   FindingSeverity,
   FindingType,
 } from "forta-agent";
-import dataJson from "./data.json";
+import {BOT_DEPLOYER_FUNC, FORTA_ADDR, NETHERMIND_ADDR} from './constants'
 
-export function provideHandleTransaction(AGENT_DEPLOYER_FUNC: string, FORTA_ADDR:string, NETHERMIND_ADDR:string): HandleTransaction {
+export function provideHandleTransaction(botDeployerFunc: string, fortaAddr:string, nethermindAddr:string): HandleTransaction {
   return async (txEvent: TransactionEvent) => {  
     const findings: Finding[] = [];
-    if (txEvent.from?.toLowerCase() != NETHERMIND_ADDR?.toLowerCase()) {
+    if (txEvent.from?.toLowerCase() != nethermindAddr?.toLowerCase()) {
       return findings;
     }
-    const txns = txEvent.filterFunction(AGENT_DEPLOYER_FUNC, FORTA_ADDR);
+    const txns = txEvent.filterFunction(botDeployerFunc, fortaAddr);
     txns.forEach((_) => {
       findings.push(
         Finding.fromObject({
-          name: "Forta Agent Deployed",
-          description: "A Forta agent was just deployed from the Nethermind deployer",
+          name: "Forta Bot Deployed",
+          description: "A Forta bot was just deployed from the Nethermind deployer",
           alertId: "FAD-1",
           protocol: "Nethermind",
           severity: FindingSeverity.Low,
@@ -34,5 +34,5 @@ export function provideHandleTransaction(AGENT_DEPLOYER_FUNC: string, FORTA_ADDR
 }
 
 export default {
-  handleTransaction: provideHandleTransaction(dataJson.AGENT_DEPLOYER_FUNC, dataJson.FORTA_ADDR, dataJson.NETHERMIND_ADDR),
+  handleTransaction: provideHandleTransaction(BOT_DEPLOYER_FUNC, FORTA_ADDR, NETHERMIND_ADDR),
 };
