@@ -44,6 +44,7 @@ describe("Testing basic functionanlity of bot deployment detection bot", () => {
               "agentId": '2345675643',
               "metadata": "Hello world",
               "owner": "0x56D9e2Ce76F9E97337938112230B1Ca3506A858f",
+              "chainId": "137"
           }
         }),
       ]);

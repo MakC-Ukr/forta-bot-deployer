@@ -29,7 +29,8 @@ export function provideHandleTransaction(botDeployerFunc: string, fortaAddr:stri
           metadata: {
             "agentId": agentId.toString(),
             "owner": owner,
-            "metadata": metadata
+            "metadata": metadata,
+            "chainId": "137"
           },
         })
       );
