@@ -8,11 +8,15 @@ This bot detects transactions with deployments of Forta bots
 - Polygon
 ## Alerts
 
-- FAD-0
+- FAD-1
   - Fired when a transaction contains the Nethermind deployer deploys a Forta bot
   - Severity is always set to "low" 
   - Type is always set to "info"
-  - Metadata is empty
+  - Metadata :
+      `agentId`: returns agentId for the bot
+      `owner`: returns owner for the bot
+      `metadata`: returns metadata for the bot
+
 ## Test Data
 
 Txn:

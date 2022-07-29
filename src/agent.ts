@@ -14,7 +14,10 @@ export function provideHandleTransaction(botDeployerFunc: string, fortaAddr:stri
       return findings;
     }
     const txns = txEvent.filterFunction(botDeployerFunc, fortaAddr);
+
     txns.forEach((singleTxEvent) => {
+      const {agentId, owner, metadata} = singleTxEvent.args;
+
       findings.push(
         Finding.fromObject({
           name: "Forta Bot Deployed",
@@ -24,9 +27,9 @@ export function provideHandleTransaction(botDeployerFunc: string, fortaAddr:stri
           severity: FindingSeverity.Low,
           type: FindingType.Info,
           metadata: {
-            "agentId": singleTxEvent.args.agentId.toString(),
-            "owner": singleTxEvent.args.owner,
-            "metadata": singleTxEvent.args.metadata
+            "agentId": agentId.toString(),
+            "owner": owner,
+            "metadata": metadata
           },
         })
       );
